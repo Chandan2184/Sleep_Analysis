@@ -1,0 +1,67 @@
+================================================================================
+SLEEP QUALITY ANALYSIS - COMPUTED RESULTS
+================================================================================
+
+To run the full analysis and generate all visualizations and detailed results,
+execute the analysis scripts:
+
+  python3 scripts/run_all_analysis.py
+
+or
+
+  python3 run_analysis_simple.py
+
+This will generate:
+  - K-means clustering analysis with cluster visualizations
+  - Linear regression models with coefficient tables
+  - Decision tree analysis with feature importance
+  - All plots saved in results/figures/
+  - All tables saved in results/tables/
+
+================================================================================
+BASIC STATISTICS (From Prepared Dataset)
+================================================================================
+
+The prepared dataset contains 5,533 participants with 34 variables covering:
+  - Sleep outcomes (duration, quality, sleepiness)
+  - Smoking patterns (status, cigarettes per day)
+  - Alcohol consumption (status, drinks per day)
+  - Demographics (age, gender, income, race)
+
+================================================================================
+EXPECTED ANALYSIS OUTPUTS
+================================================================================
+
+1. K-MEANS CLUSTERING:
+   - Identifies 4 lifestyle clusters
+   - Cluster characteristics table
+   - Sleep outcomes by cluster
+   - PCA visualization of clusters
+
+2. LINEAR REGRESSION:
+   - 3 models predicting different sleep outcomes
+   - Coefficient tables with significance levels
+   - R² and RMSE for each model
+   - Diagnostic plots
+
+3. DECISION TREES:
+   - Classification tree for poor sleep
+   - Regression tree for sleep hours
+   - Feature importance rankings
+   - Decision rules
+
+================================================================================
+TO VIEW RESULTS AFTER RUNNING:
+================================================================================
+
+Figures:
+  ls results/figures/*.png
+
+Tables:
+  cat results/tables/*.csv
+
+Summary:
+  cat results/ANALYSIS_SUMMARY.txt
+
+================================================================================
+

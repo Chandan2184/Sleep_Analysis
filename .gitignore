@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Data files (add actual data files to version control if needed)
+data/raw/*.xpt
+data/processed/*.csv
+*.csv
+
+# Results (optional - can be committed)
+results/figures/*.png
+results/tables/*.csv
+results/models/*.pkl
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+prepared_sleep_analysis_data.csv
+*.xpt
+
