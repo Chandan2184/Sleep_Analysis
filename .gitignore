@@ -15,8 +15,6 @@ data/processed/*.csv
 *.csv
 
 # Results (optional - can be committed)
-results/figures/*.png
-results/tables/*.csv
 results/models/*.pkl
 
 # Jupyter Notebooks
