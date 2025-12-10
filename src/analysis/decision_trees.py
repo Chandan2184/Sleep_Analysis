@@ -69,7 +69,7 @@ def perform_decision_tree_analysis(df, output_dir='results'):
     
     # Decision Tree
     dt_classifier = DecisionTreeClassifier(max_depth=5, min_samples_split=50, 
-                                          min_samples_leaf=20, random_state=42)
+                                          min_samples_leaf=50, random_state=42)
     dt_classifier.fit(X_train_c, y_train_c)
     
     y_pred_train = dt_classifier.predict(X_train_c)
@@ -134,7 +134,7 @@ def perform_decision_tree_analysis(df, output_dir='results'):
     
     # Decision Tree Regressor
     dt_regressor = DecisionTreeRegressor(max_depth=5, min_samples_split=50, 
-                                        min_samples_leaf=20, random_state=42)
+                                        min_samples_leaf=50, random_state=42)
     dt_regressor.fit(X_train_r, y_train_r)
     
     y_pred_train_r = dt_regressor.predict(X_train_r)
