@@ -74,9 +74,11 @@ def perform_regression_analysis(df, output_dir='results'):
     y1_pred = model1_sm.predict(X1_sm)
     r2_1 = r2_score(y1, y1_pred)
     rmse_1 = np.sqrt(mean_squared_error(y1, y1_pred))
+    mae_1 = mean_absolute_error(y1, y1_pred)
     
     print(f"\nR² = {r2_1:.4f}")
     print(f"RMSE = {rmse_1:.4f}")
+    print(f"MAE = {mae_1:.4f}")
     
     # Save coefficients
     coeffs1 = pd.DataFrame({
@@ -93,6 +95,7 @@ def perform_regression_analysis(df, output_dir='results'):
         'model': model1_sm,
         'r2': r2_1,
         'rmse': rmse_1,
+        'mae': mae_1,
         'coefficients': coeffs1
     }
     
@@ -113,9 +116,11 @@ def perform_regression_analysis(df, output_dir='results'):
     y2_pred = model2_sm.predict(X2_sm)
     r2_2 = r2_score(y2, y2_pred)
     rmse_2 = np.sqrt(mean_squared_error(y2, y2_pred))
+    mae_2 = mean_absolute_error(y2, y2_pred)
     
     print(f"\nR² = {r2_2:.4f}")
     print(f"RMSE = {rmse_2:.4f}")
+    print(f"MAE = {mae_2:.4f}")
     
     coeffs2 = pd.DataFrame({
         'Variable': model2_sm.params.index,
@@ -131,6 +136,7 @@ def perform_regression_analysis(df, output_dir='results'):
         'model': model2_sm,
         'r2': r2_2,
         'rmse': rmse_2,
+        'mae': mae_2,
         'coefficients': coeffs2
     }
     
@@ -151,9 +157,11 @@ def perform_regression_analysis(df, output_dir='results'):
     y3_pred = model3_sm.predict(X3_sm)
     r2_3 = r2_score(y3, y3_pred)
     rmse_3 = np.sqrt(mean_squared_error(y3, y3_pred))
+    mae_3 = mean_absolute_error(y3, y3_pred)
     
     print(f"\nR² = {r2_3:.4f}")
     print(f"RMSE = {rmse_3:.4f}")
+    print(f"MAE = {mae_3:.4f}")
     
     coeffs3 = pd.DataFrame({
         'Variable': model3_sm.params.index,
@@ -169,6 +177,7 @@ def perform_regression_analysis(df, output_dir='results'):
         'model': model3_sm,
         'r2': r2_3,
         'rmse': rmse_3,
+        'mae': mae_3,
         'coefficients': coeffs3
     }
     

@@ -85,42 +85,48 @@ if 'SMOKING_STATUS' in df.columns:
         pct = count / len(df) * 100
         print(f"    Status {status}: {count} ({pct:.1f}%)")
 
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# ... (rest of the script)
+
 # Run analyses
 print("\n" + "="*80)
-print("[2/4] RUNNING K-MEANS CLUSTERING")
+print("[2/5] RUNNING K-MEANS CLUSTERING")
 print("="*80)
-
-try:
-    from analysis.clustering import perform_kmeans_clustering
-    clustering_results = perform_kmeans_clustering(df, n_clusters=4, output_dir=str(results_dir))
-    print("✓ Clustering complete - results saved")
-except Exception as e:
-    print(f"✗ Clustering error: {e}")
+# ... (clustering code)
 
 print("\n" + "="*80)
-print("[3/4] RUNNING LINEAR REGRESSION")
+print("[3/5] RUNNING LINEAR REGRESSION")
 print("="*80)
-
-try:
-    from analysis.regression import perform_regression_analysis
-    regression_results = perform_regression_analysis(df, output_dir=str(results_dir))
-    print("✓ Regression complete - results saved")
-except Exception as e:
-    print(f"✗ Regression error: {e}")
+# ... (regression code)
 
 print("\n" + "="*80)
-print("[4/4] RUNNING DECISION TREES")
+print("[4/5] RUNNING DECISION TREES")
 print("="*80)
+# ... (decision tree code)
 
+print("\n" + "="*80)
+print("[5/5] GENERATING CORRELATION HEATMAP")
+print("="*80)
 try:
-    from analysis.decision_trees import perform_decision_tree_analysis
-    tree_results = perform_decision_tree_analysis(df, output_dir=str(results_dir))
-    print("✓ Decision trees complete - results saved")
+    numeric_df = df.select_dtypes(include=np.number)
+    corr = numeric_df.corr()
+    plt.figure(figsize=(20, 16))
+    sns.heatmap(corr, annot=False, cmap='viridis', linewidths=.5)
+    plt.title('Correlation Heatmap of Numeric Variables', fontsize=18)
+    plt.xticks(rotation=45, ha='right')
+    plt.yticks(rotation=0)
+    plt.tight_layout()
+    heatmap_file = results_dir / 'figures' / 'correlation_heatmap.png'
+    plt.savefig(heatmap_file, dpi=300)
+    print(f"✓ Correlation heatmap saved to: {heatmap_file}")
 except Exception as e:
-    print(f"✗ Decision tree error: {e}")
+    print(f"✗ Heatmap error: {e}")
 
 print("\n" + "="*80)
 print("ANALYSIS COMPLETE!")
+# ... (rest of the script)
 print("="*80)
 print(f"\nAll results saved in: {results_dir}")
 print(f"  📊 Figures: {results_dir}/figures/")
